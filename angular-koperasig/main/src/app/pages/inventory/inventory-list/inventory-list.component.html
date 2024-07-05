@@ -1,0 +1,235 @@
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
+<div class="inventory-container">
+  <h2>Inventory List</h2>
+
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="addItem()"
+    style="margin-bottom: 10px"
+    matTooltip="Tambah"
+  >
+    Tambah
+  </button>
+  <button
+    mat-raised-button
+    color="accent"
+    (click)="importCSV()"
+    style="margin-bottom: 10px"
+    matTooltip="Import CSV"
+  >
+    Import CSV
+  </button>
+
+  <input
+    type="file"
+    (change)="onFileSelected($event)"
+    style="display: none"
+    #fileInput
+  />
+
+  <mat-form-field appearance="outline" style="margin-bottom: 10px; width: 100%">
+    <mat-label>Search</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Cari Inventory"
+      matTooltip="Cari"
+    />
+  </mat-form-field>
+
+  <table mat-table [dataSource]="inventory" matSort class="mat-elevation-z8">
+    <!-- Columns Definitions -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="No.">
+        No
+      </th>
+      <td mat-cell *matCellDef="let item">{{ item.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="code_aset">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        matTooltip="Kode Aset"
+      >
+        Kode Aset
+      </th>
+      <td mat-cell *matCellDef="let item">{{ item.code_aset }}</td>
+    </ng-container>
+    <ng-container matColumnDef="nama_komputer">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        matTooltip="Nama komputer"
+      >
+        Komputer
+      </th>
+      <td mat-cell *matCellDef="let item">
+        <!-- <span style="font-weight: bold">{{ item.nama_komputer }}</span>
+        <br /><span style="font-size: 14px">{{ item.nama_lokasi }}</span> <br />
+        <div class="item-details">
+          <span class="item-category">{{ item.nama_kategori }}</span>
+          <span
+            class="item-icon"
+            (click)="showSerial(item)"
+            matTooltip="Details"
+          >
+            <mat-icon>more_vert</mat-icon>
+          </span>
+        </div> -->
+        <div
+          style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+        "
+        >
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: flex-start;
+              width: 100%;
+            "
+          >
+            <span style="font-weight: bold">{{ item.nama_komputer }}</span>
+            <span style="font-size: 15px">{{ item.nama_lokasi }}</span>
+          </div>
+          <div style="
+          display: flex;
+          align-items: center;
+          margin-left: 10px;
+          ">
+            <span class="item-category">{{ item.nama_kategori }}</span>
+            <span
+              class="item-icon"
+              (click)="showSerial(item)"
+              matTooltip="Details"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </span>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="nama_merk">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        matTooltip="Spesifikasi"
+      >
+        Spesifikasi
+      </th>
+      <td mat-cell *matCellDef="let item">
+
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              flex-grow: 1;
+            "
+          >
+        <span style="font-weight: bold">{{ item.nama_merk }}</span>
+        <span style="font-size: 15px">{{ item.nama_series }} - {{ item.nama_prosesor }}</span>
+          </div>
+          <div 
+          style="
+          display: flex;
+          align-items: center;
+          margin-left: 10px;
+          ">
+            <span
+            class="item-icon"
+            (click)="showSerial(item)"
+            matTooltip="Details"
+            ><mat-icon>info</mat-icon></span
+          >
+          </div>
+          </div> 
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="tgl_beli">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        matTooltip="Detail Pembelian"
+      >
+        Detail Pembelian
+      </th>
+      <td mat-cell *matCellDef="let item">
+
+        <div
+          style="
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 1px;
+            flex-direction: column;
+          "
+        >
+        <span style="font-weight: bold">{{ item.vendor }}</span>
+        <span style="font-size: 15px">{{
+          item.cost | customNumberFormat : "1.2-2"
+        }}</span>
+        <span style="font-size: 15px; font-style: italic"
+          >{{ item.tgl_beli | date:'dd-MM-yyyy' }}
+        </span>
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="qrcode">
+      <th mat-header-cell *matHeaderCellDef>QR Code</th>
+      <td mat-cell *matCellDef="let item">
+        <qrcode [qrdata]="generateQRData(item)" class="qrcode"></qrcode>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let item">
+        <button
+          mat-icon-button
+          color="black"
+          [matMenuTriggerFor]="menu"
+          matTooltip="Menu"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="showQrCode(item)">
+            <mat-icon>qr_code</mat-icon>
+            Show QR Code
+          </button>
+          <button mat-menu-item (click)="editItem(item)">
+            <mat-icon>edit</mat-icon>
+            Edit
+          </button>
+          <button mat-menu-item (click)="deleteItem(item.id)">
+            <mat-icon>delete</mat-icon>
+            Delete
+          </button>
+        </mat-menu>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

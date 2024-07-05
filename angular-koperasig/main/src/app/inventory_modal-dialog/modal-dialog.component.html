@@ -1,0 +1,112 @@
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content [formGroup]="data.form">
+  <mat-form-field appearance="fill">
+    <mat-label>Nama Komputer</mat-label>
+    <input matInput formControlName="nama_komputer">
+    <mat-error *ngIf="data.form?.get('nama_komputer')?.hasError('required')">Nama Komputer is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Merk</mat-label>
+    <mat-select formControlName="id_merk">
+      <mat-option *ngFor="let m of merk" [value]="m.id_merk">{{ m.nama_merk }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="data.form?.get('id_merk')?.hasError('required')">Merk is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Series</mat-label>
+    <mat-select formControlName="id_series">
+      <mat-option *ngFor="let m of series" [value]="m.id_series">{{ m.nama_series }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="data.form?.get('id_series')?.hasError('required')">Series is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Kategori</mat-label>
+    <mat-select formControlName="id_kategori">
+      <mat-option *ngFor="let m of kategori" [value]="m.id_kategori">{{ m.nama_kategori }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="data.form?.get('id_kategori')?.hasError('required')">Kategori is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Prosesor</mat-label>
+    <mat-select formControlName="id_prosesor">
+      <mat-option *ngFor="let m of prosesor" [value]="m.id_prosesor">{{ m.nama_prosesor }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="data.form?.get('id_prosesor')?.hasError('required')">Prosesor is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>RAM</mat-label>
+    <mat-select formControlName="id_ram">
+      <mat-option *ngFor="let m of ram" [value]="m.id_ram">{{ m.nama_ram }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="data.form?.get('id_ram')?.hasError('required')">RAM is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Storage</mat-label>
+    <mat-select formControlName="id_storage">
+      <mat-option *ngFor="let m of storage" [value]="m.id_storage">{{ m.nama_storage }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="data.form?.get('id_storage')?.hasError('required')">Storage is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Lokasi</mat-label>
+    <mat-select formControlName="id_lokasi">
+      <mat-option *ngFor="let m of lokasi" [value]="m.id_lokasi">{{ m.nama_lokasi }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="data.form?.get('id_lokasi')?.hasError('required')">Lokasi is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>IP DHCP</mat-label>
+    <input matInput formControlName="ip_dhcp">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>IP Static</mat-label>
+    <input matInput formControlName="ip_static">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Mac Address</mat-label>
+    <input matInput formControlName="mac_addres">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Serial Number</mat-label>
+    <input matInput formControlName="serial_number">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Serial Key Windows</mat-label>
+    <input matInput formControlName="serial_key_windows">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Vendor</mat-label>
+    <input matInput formControlName="vendor">
+  </mat-form-field>
+
+
+  <mat-form-field appearance="fill">
+    <mat-label>Cost</mat-label>
+    <input matInput formControlName="cost" (input)="onCostChange($event)">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Tanggal Pembelian</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="tgl_beli">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="data.form?.get('tgl_beli')?.hasError('required')">Tanggal Pembelian is required</mat-error>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button mat-button (click)="onSaveClick()" cdkFocusInitial [disabled]="data.form?.invalid">Save</button>
+</div>

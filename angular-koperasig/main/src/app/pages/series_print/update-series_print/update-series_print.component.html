@@ -1,0 +1,17 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the series_print details in input fields for editing -->
+    <div>
+        <p>Series Print ID: {{ id }}</p>
+        <label for="nama_series_print">Nama Series Print:</label>
+        <input type="text" id="nama_series_print" [(ngModel)]="nama_series_print" name="nama_series_print" required>
+    </div>
+
+    <br/>
+    
+    <!-- Button to trigger updateseries_print method -->
+    <button mat-raised-button color="primary" (click)="updateSeries_print()">Update Series Print</button>
+    <button mat-raised-button color="primary" type="button" (click)="back()" style="margin-left: 10px;">Kembali</button>
+</div>

@@ -1,0 +1,17 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the Series details in input fields for editing -->
+    <div>
+        <p>Series ID: {{ id_series }}</p>
+        <label for="nama_series">Nama Series:</label>
+        <input type="text" id="nama_series" [(ngModel)]="nama_series" name="nama_series" required>
+    </div>
+
+    <br/>
+    
+    <!-- Button to trigger updateSeries method -->
+    <button mat-raised-button color="primary" (click)="updateSeries()">Update series</button>
+    <button mat-raised-button color="primary" type="button" (click)="back()" style="margin-left: 10px;">Kembali</button>
+</div>

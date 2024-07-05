@@ -1,0 +1,14 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the Ram details -->
+    <p>Ram ID: {{ id_ram }}</p>
+    <p>Nama Ram: {{ nama_ram }}</p>
+    
+    <!-- Update form removed as it's on a separate page -->
+    
+    <!-- Button to trigger updateRam method -->
+    <button mat-raised-button color="primary" (click)="updateRam()">Update Ram</button>
+  </div>
+  

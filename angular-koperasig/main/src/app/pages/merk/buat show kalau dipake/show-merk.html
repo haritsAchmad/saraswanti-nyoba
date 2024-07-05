@@ -1,0 +1,14 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the Merk details -->
+    <p>Merk ID: {{ id_merk }}</p>
+    <p>Nama Merk: {{ nama_merk }}</p>
+    
+    <!-- Update form removed as it's on a separate page -->
+    
+    <!-- Button to trigger updateMerk method -->
+    <button mat-raised-button color="primary" (click)="updateMerk()">Update Merk</button>
+  </div>
+  

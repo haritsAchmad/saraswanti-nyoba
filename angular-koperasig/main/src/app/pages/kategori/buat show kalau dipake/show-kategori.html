@@ -1,0 +1,14 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the kategori details -->
+    <p>Kategori ID: {{ id_kategori }}</p>
+    <p>Nama Kategori: {{ nama_kategori }}</p>
+    
+    <!-- Update form removed as it's on a separate page -->
+    
+    <!-- Button to trigger updatekategori method -->
+    <button mat-raised-button color="primary" (click)="updateKategori()">Update Kategori</button>
+  </div>
+  

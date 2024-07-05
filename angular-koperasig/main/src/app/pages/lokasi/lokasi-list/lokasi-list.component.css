@@ -1,0 +1,32 @@
+.lokasi-container {
+    margin: 20px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  .mat-elevation-z8 {
+    margin-bottom: 20px;
+    width: 100%;
+    overflow: auto;
+  }
+  
+  .edit-form {
+    margin-top: 20px;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  .form-buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  button {
+    margin-right: 10px;
+  }
+  

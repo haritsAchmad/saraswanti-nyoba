@@ -1,0 +1,14 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the Storage details -->
+    <p>Storage ID: {{ id_storage }}</p>
+    <p>Nama Storage: {{ nama_storage }}</p>
+    
+    <!-- Update form removed as it's on a separate page -->
+    
+    <!-- Button to trigger updateStorage method -->
+    <button mat-raised-button color="primary" (click)="updateStorage()">Update Storage</button>
+  </div>
+  

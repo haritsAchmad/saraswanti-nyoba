@@ -1,0 +1,17 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the prosesor details in input fields for editing -->
+    <div>
+        <p>Prosesor ID: {{ id_prosesor }}</p>
+        <label for="nama_prosesor">Nama Prosesor:</label>
+        <input type="text" id="nama_prosesor" [(ngModel)]="nama_prosesor" name="nama_prosesor" required>
+    </div>
+
+    <br/>
+    
+    <!-- Button to trigger updateprosesor method -->
+    <button mat-raised-button color="primary" (click)="updateProsesor()">Update prosesor</button>
+    <button mat-raised-button color="primary" type="button" (click)="back()" style="margin-left: 10px;">Kembali</button>
+</div>

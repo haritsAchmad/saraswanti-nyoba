@@ -1,0 +1,12 @@
+<div>
+    <h2>Scan Barcode:</h2>
+    <video id="video" width="300" height="200" style="border: 1px solid gray"></video>
+    <button (click)="startScanner()">Start Scanner</button>
+    <div *ngIf="scannedResult">
+      <h3>Scanned Item Details:</h3>
+      <p>ID: {{ scannedResult.id }}</p>
+      <p>Kode Aset: {{ scannedResult.code_aset }}</p>
+      <p>Nama Komputer: {{ scannedResult.nama_komputer }}</p>
+    </div>
+  </div>
+  

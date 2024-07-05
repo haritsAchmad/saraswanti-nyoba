@@ -1,0 +1,22 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the Prosesor details in input fields for editing -->
+    <form [formGroup]="createInvForm" class="m-t-30" (ngSubmit)="createProsesor()">
+        <mat-form-field appearance="outline" class="w-100" color="primary">
+          <mat-label>Nama Prosesor</mat-label>
+          <input matInput formControlName="nama_prosesor" />
+          <mat-error *ngIf="createInvForm.get('nama_prosesor')?.invalid && createInvForm.get('nama_prosesor')?.touched">
+            nama_prosesor is required.
+          </mat-error>
+        </mat-form-field>
+
+        <div class="button-group">
+          <button mat-raised-button color="primary" type="submit">
+            Tambah
+          </button>
+          <button mat-raised-button color="primary" type="button" (click)="back()" style="margin-left: 10px;">Kembali</button>
+        </div>
+      </form>
+</div>

@@ -1,0 +1,17 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the merk details in input fields for editing -->
+    <div>
+        <p>Merk ID: {{ id_merk }}</p>
+        <label for="nama_merk">Nama Merk:</label>
+        <input type="text" id="nama_merk" [(ngModel)]="nama_merk" name="nama_merk" required>
+    </div>
+
+    <br/>
+    
+    <!-- Button to trigger updatemerk method -->
+    <button mat-raised-button color="primary" (click)="updateMerk()">Update merk</button>
+    <button mat-raised-button color="primary" type="button" (click)="back()" style="margin-left: 10px;">Kembali</button>
+</div>

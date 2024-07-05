@@ -1,0 +1,137 @@
+.inventory-container {
+    margin: 20px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  .mat-elevation-z8 {
+    margin-bottom: 20px;
+    width: 100%;
+    overflow: auto;
+  }
+  
+  .edit-form {
+    margin-top: 20px;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  .form-buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  button {
+    margin-right: 10px;
+  }
+  
+  
+  .custom-barcode {
+    width: 150px; /* Adjust width as needed */
+    height: auto;
+    justify-content: center;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .item-category {
+    font-size: 12px;
+    background-color: green;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+  }
+  
+  .item-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .item-details {
+    display: flex;
+    align-items: center;
+  }
+
+  th{
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  td{
+    font-size: 14px;
+  }
+
+.nama-komputer-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1px;
+}
+
+.nama-komputer-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  word-wrap: break-word; /* Allow long words to wrap */
+  word-break: break-all; /* Break long words */
+  white-space: normal; /* Ensure text can wrap to the next line */
+}
+
+.nama-komputer {
+  font-weight: bold;
+}
+
+.spec-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.spec-text {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.spec-merk {
+  font-weight: bold;
+}
+
+.spec-details {
+  font-size: 15px;
+}
+
+.spec-icon {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}

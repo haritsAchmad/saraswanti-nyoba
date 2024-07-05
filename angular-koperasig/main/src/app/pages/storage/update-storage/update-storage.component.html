@@ -1,0 +1,17 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the Storage details in input fields for editing -->
+    <div>
+        <p>Storage ID: {{ id_storage }}</p>
+        <label for="nama_storage">Nama Storage:</label>
+        <input type="text" id="nama_storage" [(ngModel)]="nama_storage" name="nama_storage" required>
+    </div>
+
+    <br/>
+    
+    <!-- Button to trigger updateStorage method -->
+    <button mat-raised-button color="primary" (click)="updateStorage()">Update Storage</button>
+    <button mat-raised-button color="primary" type="button" (click)="back()" style="margin-left: 10px;">Kembali</button>
+</div>

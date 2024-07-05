@@ -1,0 +1,17 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the kategori details in input fields for editing -->
+    <div>
+        <p>kategori ID: {{ id_kategori }}</p>
+        <label for="nama_kategori">Nama Kategori:</label>
+        <input type="text" id="nama_kategori" [(ngModel)]="nama_kategori" name="nama_kategori" required>
+    </div>
+
+    <br/>
+    
+    <!-- Button to trigger updatekategori method -->
+    <button mat-raised-button color="primary" (click)="updateKategori()">Update kategori</button>
+    <button mat-raised-button color="primary" type="button" (click)="back()" style="margin-left: 10px;">Kembali</button>
+</div>

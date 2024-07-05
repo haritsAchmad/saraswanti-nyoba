@@ -1,0 +1,18 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the inventory details in input fields for editing -->
+    <div>
+        <p>Inventory ID: {{ inventoryId }}</p>
+        <p>Kode Aset: {{ code_aset }}</p>
+        <label for="nama_komputer">Nama Komputer:</label>
+        <input type="text" id="nama_komputer" [(ngModel)]="nama_komputer" name="nama_komputer" required>
+    </div>
+
+    <br/>
+    
+    <!-- Button to trigger updateInventory method -->
+    <button mat-raised-button color="primary" (click)="updateInventory()">Update Inventory</button>
+    <button mat-raised-button color="primary" type="button" (click)="back()" style="margin-left: 10px;">Kembali</button>
+</div>

@@ -1,0 +1,17 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the lokasi details in input fields for editing -->
+    <div>
+        <p>Lokasi ID: {{ id_lokasi }}</p>
+        <label for="nama_lokasi">Nama Lokasi:</label>
+        <input type="text" id="nama_lokasi" [(ngModel)]="nama_lokasi" name="nama_lokasi" required>
+    </div>
+
+    <br/>
+    
+    <!-- Button to trigger updatelokasi method -->
+    <button mat-raised-button color="primary" (click)="updateLokasi()">Update lokasi</button>
+    <button mat-raised-button color="primary" type="button" (click)="back()" style="margin-left: 10px;">Kembali</button>
+</div>

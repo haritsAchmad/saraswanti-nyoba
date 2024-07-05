@@ -1,0 +1,14 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the lokasi details -->
+    <p>Lokasi ID: {{ id_lokasi }}</p>
+    <p>Nama Lokasi: {{ nama_lokasi }}</p>
+    
+    <!-- Update form removed as it's on a separate page -->
+    
+    <!-- Button to trigger updatelokasi method -->
+    <button mat-raised-button color="primary" (click)="updateLokasi()">Update Lokasi</button>
+  </div>
+  

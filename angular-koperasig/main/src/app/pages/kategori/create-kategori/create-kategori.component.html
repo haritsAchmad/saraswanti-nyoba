@@ -1,0 +1,22 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the kategori details in input fields for editing -->
+    <form [formGroup]="createInvForm" class="m-t-30" (ngSubmit)="createKategori()">
+        <mat-form-field appearance="outline" class="w-100" color="primary">
+          <mat-label>Nama Kategori</mat-label>
+          <input matInput formControlName="nama_kategori" />
+          <mat-error *ngIf="createInvForm.get('nama_kategori')?.invalid && createInvForm.get('nama_kategori')?.touched">
+            nama_kategori is required.
+          </mat-error>
+        </mat-form-field>
+
+        <div class="button-group">
+          <button mat-raised-button color="primary" type="submit">
+            Tambah
+          </button>
+          <button mat-raised-button color="primary" type="button" (click)="back()" style="margin-left: 10px;">Kembali</button>
+        </div>
+      </form>
+</div>

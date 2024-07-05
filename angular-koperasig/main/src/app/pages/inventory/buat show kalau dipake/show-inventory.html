@@ -1,0 +1,14 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the inventory details -->
+    <p>Inventory ID: {{ inventoryId }}</p>
+    <p>Nama Komputer: {{ nama_komputer }}</p>
+    
+    <!-- Update form removed as it's on a separate page -->
+    
+    <!-- Button to trigger updateInventory method -->
+    <button mat-raised-button color="primary" (click)="updateInventory()">Update Inventory</button>
+  </div>
+  

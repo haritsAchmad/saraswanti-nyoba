@@ -1,0 +1,22 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the inventory details in input fields for editing -->
+    <form [formGroup]="createInvForm" class="m-t-30" (ngSubmit)="createInventory()">
+        <mat-form-field appearance="outline" class="w-100" color="primary">
+          <mat-label>Nama Komputer</mat-label>
+          <input matInput formControlName="nama_komputer" />
+          <mat-error *ngIf="createInvForm.get('nama_komputer')?.invalid && createInvForm.get('nama_komputer')?.touched">
+            nama_komputer is required.
+          </mat-error>
+        </mat-form-field>
+
+        <div class="button-group">
+          <button mat-raised-button color="primary" type="submit">
+            Tambah
+          </button>
+          <button mat-raised-button color="primary" type="button" (click)="back()" style="margin-left: 10px;">Kembali</button>
+        </div>
+      </form>
+</div>

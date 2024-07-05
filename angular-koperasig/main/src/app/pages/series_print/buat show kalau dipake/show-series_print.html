@@ -1,0 +1,14 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the Series_print details -->
+    <p>Series Print ID: {{ id }}</p>
+    <p>Nama Series Print: {{ nama_series_print }}</p>
+    
+    <!-- Update form removed as it's on a separate page -->
+    
+    <!-- Button to trigger updateSeries_print method -->
+    <button mat-raised-button color="primary" (click)="updateSeries_print()">Update Series Print</button>
+  </div>
+  

@@ -1,0 +1,17 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the ram details in input fields for editing -->
+    <div>
+        <p>RAM ID: {{ id_ram }}</p>
+        <label for="nama_ram">Nama RAM:</label>
+        <input type="text" id="nama_ram" [(ngModel)]="nama_ram" name="nama_ram" required>
+    </div>
+
+    <br/>
+    
+    <!-- Button to trigger updateram method -->
+    <button mat-raised-button color="primary" (click)="updateRam()">Update ram</button>
+    <button mat-raised-button color="primary" type="button" (click)="back()" style="margin-left: 10px;">Kembali</button>
+</div>

@@ -1,0 +1,22 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the series details in input fields for editing -->
+    <form [formGroup]="createInvForm" class="m-t-30" (ngSubmit)="createSeries()">
+        <mat-form-field appearance="outline" class="w-100" color="primary">
+          <mat-label>Nama Series</mat-label>
+          <input matInput formControlName="nama_series" />
+          <mat-error *ngIf="createInvForm.get('nama_series')?.invalid && createInvForm.get('nama_series')?.touched">
+            nama_series is required.
+          </mat-error>
+        </mat-form-field>
+
+        <div class="button-group">
+          <button mat-raised-button color="primary" type="submit">
+            Tambah
+          </button>
+          <button mat-raised-button color="primary" type="button" (click)="back()" style="margin-left: 10px;">Kembali</button>
+        </div>
+      </form>
+</div>

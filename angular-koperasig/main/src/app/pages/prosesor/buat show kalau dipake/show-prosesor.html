@@ -1,0 +1,14 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the Prosesor details -->
+    <p>Prosesor ID: {{ id_prosesor }}</p>
+    <p>Nama Prosesor: {{ nama_prosesor }}</p>
+    
+    <!-- Update form removed as it's on a separate page -->
+    
+    <!-- Button to trigger updateProsesor method -->
+    <button mat-raised-button color="primary" (click)="updateProsesor()">Update Prosesor</button>
+  </div>
+  

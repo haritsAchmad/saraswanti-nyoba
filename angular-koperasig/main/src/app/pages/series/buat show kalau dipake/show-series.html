@@ -1,0 +1,14 @@
+<div>
+    <!-- Display error message if any -->
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    <!-- Display the Series details -->
+    <p>Series ID: {{ id_series }}</p>
+    <p>Nama Series: {{ nama_series }}</p>
+    
+    <!-- Update form removed as it's on a separate page -->
+    
+    <!-- Button to trigger updateSeries method -->
+    <button mat-raised-button color="primary" (click)="updateSeries()">Update Series</button>
+  </div>
+  
